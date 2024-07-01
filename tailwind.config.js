@@ -31,6 +31,9 @@ module.exports = {
         pblack: ['Poppins-Black', 'sans-serif'],
       },
     },
+    colors: {
+      text: '#FF9001',
+    },
   },
   plugins: [],
 }
