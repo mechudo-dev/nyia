@@ -3,118 +3,67 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomNavbar from '@/components/navigation/CustomNavbar'
 import { StatusBar } from 'expo-status-bar'
-import CustomFloatingButton from '@/components/buttons/CustomFloatingButton'
-
-interface TransactionInterface {
-  id?: string
-  amount: number
-  description: string
-  date: Date
-}
-
-const DEFAULT_TRANSACTIONS = [
-  {
-    id: 'adsfasdf',
-    amount: 5600,
-    description: 'Uvas',
-    date: new Date('05/05/2024'),
-  },
-  {
-    id: 'asdsdfffdsd',
-    amount: 60000,
-    description: 'Almuerzo',
-    date: new Date('25/05/2024'),
-  },
-  {
-    id: 'sdfs',
-    amount: 80000,
-    description: 'Comida',
-    date: new Date('6/05/2024'),
-  },
-  {
-    id: 'adsfascbcvbdf',
-    amount: 5600,
-    description: 'Uvas',
-    date: new Date('05/05/2024'),
-  },
-  {
-    id: 'asdsdffcvbcvbfdsd',
-    amount: 60000,
-    description: 'Almuerzo',
-    date: new Date('25/05/2024'),
-  },
-  {
-    id: 'sdcvbcvbfs',
-    amount: 80000,
-    description: 'Comida',
-    date: new Date('6/05/2024'),
-  },
-  {
-    id: 'adsfasasdfasdfcbcvbdf',
-    amount: 5600,
-    description: 'Uvas',
-    date: new Date('05/05/2024'),
-  },
-  {
-    id: 'asdsdffsdddcvbcvbfdsd',
-    amount: 60000,
-    description: 'Almuerzo',
-    date: new Date('25/05/2024'),
-  },
-  {
-    id: 'sdcvbcvsdsdbfs',
-    amount: 80000,
-    description: 'Comida',
-    date: new Date('6/05/2024'),
-  },
-] as TransactionInterface[]
-
-const Item = ({ item }: { item: TransactionInterface }) => (
-  <View className='p-5 my-2 bg-white rounded-xl'>
-    <Text className='text-lg'>
-      {item.description} - {item.amount}
-    </Text>
-  </View>
-)
+import { formatCurrency } from '@/lib/utils'
+import AddTransactionModal from '@/components/AddTransactionModal'
+import { TransactionInterface } from '@/types'
+import TransactionItem from '@/components/TransactionItem'
 
 const Transactions = () => {
-  const [transactions, setTransactions] = useState<
-    TransactionInterface[] | null
-  >(DEFAULT_TRANSACTIONS)
+  const [transactions, setTransactions] = useState<TransactionInterface[]>([])
+  const [total, setTotal] = useState<number>(0)
+
+  const addTransactionItem = (transaction: TransactionInterface) => {
+    setTransactions([...transactions, transaction])
+    setTotal(total + transaction.amount)
+  }
+
+  const removeTransactionItem = (transaction: TransactionInterface) => {
+    setTransactions((prevTransactions) =>
+      prevTransactions.filter(
+        (transactionItem) => transactionItem.id !== transaction.id
+      )
+    )
+    setTotal(total - transaction.amount)
+  }
+
   return (
-    <SafeAreaView className='h-full bg-primary'>
-      {/* <ScrollView> */}
-        <View className='w-full ' style={{ flex: 1 }}>
-          <View className='px-4'>
+    <SafeAreaView className='h-full text-white bg-primary '>
+      <View style={{ flex: 1 }}>
+        <View className='justify-center w-full h-full' style={{ flex: 1 }}>
+          <View className='px-4 '>
             <CustomNavbar />
-            <Text className='text-2xl tracking-widest text-white font-pmedium'>
+            <Text className='pb-2 text-2xl tracking-widest text-white font-pmedium'>
               Transactions
             </Text>
-            <View className='h-[450px] items-center justify-center w-full'>
-              {transactions?.length === 0 ? (
-                <Text className='tracking-widest text-center text-white'>
-                  No transactions yet. Add a new one.
-                </Text>
-              ) : (
-                <FlatList
-                  className='flex flex-col gap-2'
-                  data={transactions}
-                  renderItem={({ item }) => <Item item={item} />}
-                />
-              )}
-              <CustomFloatingButton
-                title='Add Transaction'
-                handlePress={() => {}}
-              />
-            </View>
           </View>
-          {/* parte baja */}
-          <View className='flex-row items-center justify-between w-full p-4 border-t border-white'>
-            <Text className='text-2xl font-pmedium'>Total</Text>
-            <Text className='flex text-xl font-pregular'>$323.540</Text>
+          <View className='justify-center ' style={{ flex: 1 }}>
+            {transactions?.length === 0 ? (
+              <Text className='tracking-widest text-center text-white'>
+                No transactions yet.{' '}
+                <Text className='text-secondary-100'>Add a new one below.</Text>
+              </Text>
+            ) : (
+              <FlatList
+                className='flex flex-col w-full p-2'
+                data={transactions}
+                renderItem={({ item }) => (
+                  <TransactionItem
+                    item={item}
+                    removeTransactionItem={removeTransactionItem}
+                  />
+                )}
+              />
+            )}
+            <AddTransactionModal addTransactionItem={addTransactionItem} />
           </View>
         </View>
-      {/* </ScrollView> */}
+        <View className='flex-row items-center justify-between w-full p-4 border-t border-secondary-100'>
+          <Text className='text-2xl text-white font-pmedium'>Total</Text>
+          <Text className='flex text-xl text-white font-pregular'>
+            {formatCurrency(total)}
+          </Text>
+        </View>
+      </View>
       <StatusBar backgroundColor='#161622' style='light' />
     </SafeAreaView>
   )

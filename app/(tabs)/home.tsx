@@ -8,11 +8,11 @@ import CustomButton from '@/components/buttons/CustomButton'
 
 const Home = () => {
   return (
-    <SafeAreaView className='h-full bg-primary'>
+    <SafeAreaView className='h-full text-white bg-primary '>
       <ScrollView>
         <View className='justify-center w-full h-full px-4 '>
           <CustomNavbar />
-          <Text className='text-3xl tracking-widest text-white font-pmedium'>
+          <Text className='pb-4 text-2xl tracking-widest text-white font-pmedium'>
             Home
           </Text>
           

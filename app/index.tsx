@@ -15,15 +15,14 @@ import { images } from '@/constants'
 import CustomButton from '@/components/buttons/CustomButton'
 import { StatusBar } from 'expo-status-bar'
 import { router } from 'expo-router'
+import CustomNavbar from '@/components/navigation/CustomNavbar'
 
 export default function RootLayout() {
   return (
     <SafeAreaView className='h-full bg-primary'>
       <ScrollView contentContainerStyle={{ height: '100%' }}>
         <View className='items-center w-full min-h-[85vh] px-4 justify-center'>
-          <Text className='my-4 text-4xl tracking-widest text-center text-white font-pbold'>
-            Settle Ups <Text className='text-violet-500'>Trips</Text>
-          </Text>
+          <CustomNavbar />
           <View
             className='border-2 border-white border-solid rounded-3xl w-[200px] h-[266px] overflow-hidden shadow-lg'
             style={{

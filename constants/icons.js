@@ -1,4 +1,5 @@
 import bookmark from '../assets/icons/bookmark.png'
+import trash from '../assets/icons/trash.png'
 import home from '../assets/icons/house.png'
 import plus from '../assets/icons/plus.png'
 import profile from '../assets/icons/profile.png'
@@ -28,4 +29,5 @@ export default {
   eyeHide,
   eye,
   transactions,
+  trash,
 }
