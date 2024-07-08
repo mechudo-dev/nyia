@@ -52,13 +52,18 @@ const AddTransactionModal = ({
     })
   }
 
+  const cancelAdd = () => {
+    toggleModal()
+  }
+
   return (
     <View className='absolute right-4 bottom-4'>
       <CustomButton
         title='Add Transaction'
         handlePress={toggleModal}
         containerStyles=''
-        icon={icons.plus}
+        icon={icons.add
+        }
       />
       <Modal
         animationType='slide'
@@ -102,7 +107,7 @@ const AddTransactionModal = ({
             />
             <CustomButton
               title='Cancel'
-              handlePress={submit}
+              handlePress={() => { cancelAdd() }}
               containerStyles='mt-4 bg-primary border border-secondary'
               textStyles='text-white'
               isLoading={isSubmitting}

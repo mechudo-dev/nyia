@@ -4,6 +4,9 @@ import { icons } from '../../constants'
 import { TabIcon } from '@/components/navigation/TabIcon'
 
 const TabsLayout = () => {
+  // const { loading, isLogged } = useGlobalContext();
+
+  // if (!loading && !isLogged) return <Redirect href="/sign-in" />;
   return (
     <>
       <Tabs
@@ -35,6 +38,36 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
+          name="groups"
+          options={{
+            title: "Groups",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.groups}
+                color={color}
+                name="Groups"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="transactions"
+          options={{
+            title: "Add",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.add}
+                color={color}
+                name="Add"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+        {/* <Tabs.Screen
           name='transactions'
           options={{
             title: 'Transactions',
@@ -44,6 +77,36 @@ const TabsLayout = () => {
                 icon={icons.transactions}
                 color={color}
                 name='Transactions'
+                focused={focused}
+              />
+            ),
+          }}
+        /> */}
+        <Tabs.Screen
+          name="friends"
+          options={{
+            title: "Friends",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.friends}
+                color={color}
+                name="Friends"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: "Profile",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.profile}
+                color={color}
+                name="Profile"
                 focused={focused}
               />
             ),

@@ -1,33 +1,19 @@
-import bookmark from '../assets/icons/bookmark.png'
-import trash from '../assets/icons/trash.png'
 import home from '../assets/icons/house.png'
-import plus from '../assets/icons/plus.png'
 import profile from '../assets/icons/profile.png'
-import leftArrow from '../assets/icons/left-arrow.png'
-import menu from '../assets/icons/menu.png'
-import search from '../assets/icons/search.png'
-import upload from '../assets/icons/upload.png'
-import rightArrow from '../assets/icons/right-arrow.png'
-import logout from '../assets/icons/logout.png'
+import trash from '../assets/icons/trash.png'
+import groups from '../assets/icons/groups.png'
+import friends from '../assets/icons/friends.png'
+import add from '../assets/icons/add.png'
 import eyeHide from '../assets/icons/eye-hide.png'
 import eye from '../assets/icons/eye.png'
-import play from '../assets/icons/play.png'
-import transactions from '../assets/icons/arrow-left-right.png'
 
 export default {
-  play,
-  bookmark,
   home,
-  plus,
+  trash,
+  groups,
+  friends,
+  add,
   profile,
-  leftArrow,
-  menu,
-  search,
-  upload,
-  rightArrow,
-  logout,
   eyeHide,
   eye,
-  transactions,
-  trash,
 }

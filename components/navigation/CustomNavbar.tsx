@@ -5,7 +5,7 @@ const CustomNavbar = () => {
   return (
     <View className='my-2'>
       <Text className='text-3xl tracking-widest text-center text-white font-pbold'>
-        Settle Ups <Text className='text-secondary'>Trips</Text>
+        Nyia <Text className='text-secondary'>App</Text>
       </Text>
     </View>
   )
