@@ -33,11 +33,11 @@ export default function RootLayout() {
               elevation: 5,
             }}
           >
-            <Image
+            {/* <Image
               source={images.intro}
               className='object-contain w-full h-full'
               resizeMode='contain'
-            />
+            /> */}
           </View>
           <View className='relative mt-5'>
             <Text className='text-3xl font-bold text-center text-white'>
@@ -48,7 +48,7 @@ export default function RootLayout() {
           </View>
 
           <Text className='text-sm text-center text-gray-100 font-pregular mt-7'>
-            Say goodbye to awkward money talks! Settle Up keeps track of
+            Say goodbye to awkward money talks! Nyia keeps track of
             everything.
           </Text>
 

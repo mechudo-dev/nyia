@@ -38,15 +38,15 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="groups"
+          name="friends"
           options={{
-            title: "Groups",
+            title: "Friends",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.groups}
+                icon={icons.friends}
                 color={color}
-                name="Groups"
+                name="Friends"
                 focused={focused}
               />
             ),
@@ -83,15 +83,15 @@ const TabsLayout = () => {
           }}
         /> */}
         <Tabs.Screen
-          name="friends"
+          name="groups"
           options={{
-            title: "Friends",
+            title: "Groups",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.friends}
+                icon={icons.groups}
                 color={color}
-                name="Friends"
+                name="Groups"
                 focused={focused}
               />
             ),
