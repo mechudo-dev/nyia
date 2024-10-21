@@ -49,12 +49,11 @@ const SignUp = () => {
 
   }
 
-
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="h-full bg-primary">
       <ScrollView>
         <View
-          className='w-full flex justify-center h-full px-4 my-6'
+          className='flex justify-center w-full h-full px-4 my-6'
           style={{ minHeight: Dimensions.get('window').height - 100 }}>
 
           <CustomNavbar />
@@ -105,7 +104,7 @@ const SignUp = () => {
 
           <Separator />
 
-          <View className='flex-row w-full justify-center gap-2 grid-cols-2'>
+          <View className='flex-row justify-center w-full grid-cols-2 gap-2'>
             <CustomButton
               title='Google'
               handlePress={() => { }}
@@ -122,7 +121,7 @@ const SignUp = () => {
           </View>
 
 
-          <View className='flex justify-center pt-5 flex-row gap-2'>
+          <View className='flex flex-row justify-center gap-2 pt-5'>
             <Text className='text-base text-gray-100 font-pregular'>
               Already have an account?
             </Text>
